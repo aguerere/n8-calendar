@@ -1,0 +1,10 @@
+<p>
+  Start Date: <input type="date" [ngModel] ="dt | date:'yyyy-MM-dd'" (ngModelChange)="dt = $event" [value]="datee | date:'yyyy-MM-dd'">
+  <!--{{dt| date:'yyyy-MM-dd'}}-->
+  <br/>
+  Number of days: <input type="number" [(ngModel)] = "days">
+  <br/>
+  Country Code: <input type="text" [(ngModel)] = "countryCode">
+  <br/>
+  <button (click)="render()">Render</button>
+</p>
