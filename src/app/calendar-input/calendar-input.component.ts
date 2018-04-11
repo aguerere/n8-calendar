@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CalendarRenderService } from '../services/calendar-render.service';
 
 @Component({
-  selector: 'app-calendar-input',
+  selector: 'calendar-input',
   templateUrl: './calendar-input.component.html',
   styleUrls: ['./calendar-input.component.css']
 })
