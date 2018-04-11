@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calendar-input.component.css']
 })
 export class CalendarInputComponent implements OnInit {
-  dt;
-  days;
-  countryCode;
-  constructor() { 
-    this.dt = new Date();
+  startDate : Date;
+  days : number;
+  countryCode : String;
+  constructor() {
+    this.startDate = new Date();
     this.days = 15;
     this.countryCode = 'US';
   }
@@ -18,8 +18,18 @@ export class CalendarInputComponent implements OnInit {
   ngOnInit() {
   }
 
+  updateCountryCode(event : any) {
+    this.countryCode = event.trim().toUpperCase();
+  }
+
+  keyPressCountryCode(event : any) {
+    const pattern = /[a-zA-Z]/;
+    let inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) event.preventDefault();
+  }
+
   render() {
-    console.log(this.dt, this.days, this.countryCode);
+    console.log(this.startDate, this.days, this.countryCode);
   }
 
 }
