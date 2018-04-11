@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeekdaysHeaderComponent implements OnInit {
 
+  weekdays : String[] = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+
   constructor() { }
 
   ngOnInit() {

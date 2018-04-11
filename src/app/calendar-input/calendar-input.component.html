@@ -1,4 +1,4 @@
-<p>
+<section class="mat-typography">
   Start Date: <input type="date" [ngModel] ="startDate | date:'yyyy-MM-dd'" (ngModelChange)="startDate = $event">
   <!--{{dt| date:'yyyy-MM-dd'}}-->
   <br/>
@@ -7,4 +7,4 @@
   Country Code: <input type="text" [ngModel] = "countryCode" (ngModelChange)="updateCountryCode($event)" maxlength="2" (keypress)="keyPressCountryCode($event)">
   <br/>
   <button (click)="render()">Render</button>
-</p>
+</section>
