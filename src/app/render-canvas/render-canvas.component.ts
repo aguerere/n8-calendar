@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalendarRenderService } from '../services/calendar-render.service';
 
 @Component({
   selector: 'render-canvas',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RenderCanvasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private calendarRenderService : CalendarRenderService) { }
 
   ngOnInit() {
   }

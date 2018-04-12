@@ -9,8 +9,8 @@ import { CalendarRenderService } from '../services/calendar-render.service';
 export class CalendarInputComponent implements OnInit {
   startDate : Date;
   days : number;
-  countryCode : String;
-  constructor() {
+  countryCode : string;
+  constructor(private calendarRenderService : CalendarRenderService) {
     this.startDate = new Date();
     this.days = 15;
     this.countryCode = 'US';
@@ -30,7 +30,9 @@ export class CalendarInputComponent implements OnInit {
   }
 
   render() {
-    console.log(this.startDate, this.days, this.countryCode);
+    this.calendarRenderService.startDate = this.startDate;
+    this.calendarRenderService.daysCount = this.days;
+    this.calendarRenderService.countryCode = this.countryCode;
   }
 
 }

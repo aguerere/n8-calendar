@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CalendarComponent } from './calendar/calendar.component';
+import { CalendarMonthComponent } from './calendar-month/calendar-month.component';
 
 import { AppMaterialModule } from '../../app-material-module/app-material.module';
 
@@ -10,10 +10,10 @@ import { AppMaterialModule } from '../../app-material-module/app-material.module
     AppMaterialModule
   ],
   declarations: [
-    CalendarComponent
+    CalendarMonthComponent
   ],
   exports: [
-    CalendarComponent
+    CalendarMonthComponent
   ]
 })
 export class CalendarModule { }

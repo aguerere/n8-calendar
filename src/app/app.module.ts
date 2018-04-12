@@ -12,6 +12,8 @@ import { WeekdaysHeaderComponent } from './render-canvas/weekdays-header/weekday
 import { AppMaterialModule } from './app-material-module/app-material.module';
 import { CalendarModule } from './render-canvas/calendar-module/calendar.module';
 
+import { CalendarRenderService } from './services/calendar-render.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,9 @@ import { CalendarModule } from './render-canvas/calendar-module/calendar.module'
     AppMaterialModule,
     CalendarModule
   ],
-  providers: [],
+  providers: [
+    CalendarRenderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
