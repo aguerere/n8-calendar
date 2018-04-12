@@ -14,6 +14,9 @@ import { AppMaterialModule } from '../../app-material-module/app-material.module
   ],
   exports: [
     CalendarMonthComponent
+  ],
+  providers: [
+    
   ]
 })
 export class CalendarModule { }

@@ -1,3 +1,4 @@
-<weekdays-header></weekdays-header>
-<calendar-month></calendar-month>
-{{ calendarRenderService.startDate }}
+<section *ngIf='calendarRenderService.renderDone'>
+    <weekdays-header></weekdays-header>
+    <calendar-month *ngFor='let month of calendarRenderService.calendarMonths' [month]='month'></calendar-month>
+</section>

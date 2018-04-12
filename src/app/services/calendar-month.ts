@@ -31,7 +31,7 @@ export class CalendarMonth {
     }
 
     get days() {
-        return this.days;
+        return this._days;
     }
 
     addDay(newDay : CalendarDay) {

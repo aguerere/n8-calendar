@@ -21,6 +21,7 @@ export class CalendarInputComponent implements OnInit {
 
   updateCountryCode(event : any) {
     this.countryCode = event.trim().toUpperCase();
+    this.calendarRenderService.clearRender();
   }
 
   keyPressCountryCode(event : any) {

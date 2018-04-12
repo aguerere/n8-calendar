@@ -11,8 +11,11 @@ export class CalendarRenderService {
   private _countryCode : string;
   private _calendarMonthsCount : number;
   private _calendarMonths : CalendarMonth[];
+  private _renderDone : boolean;
 
-  constructor() { }
+  constructor() {
+    this._renderDone = false;
+  }
 
   get startDate() : Date {
     return this._startDate;
@@ -38,10 +41,24 @@ export class CalendarRenderService {
     this._countryCode = newCountryCode;
   }
 
+  get renderDone() : boolean {
+    return this._renderDone;
+  }
+
+  clearRender() {
+    this._renderDone = false;
+  }
+
+  get calendarMonths() : CalendarMonth[] {
+    return this._calendarMonths;
+  }
+
   render() {
     let startDate = moment(this._startDate);
     let endDate = moment(this._startDate).add(this._daysCount, 'd');
-    this._calendarMonthsCount = endDate.month() - startDate.month();
+    //this._calendarMonthsCount = endDate.month() - startDate.month(); //Works if year is the same
+    this._calendarMonthsCount = endDate.diff(startDate, 'months');
+    //console.log(this._calendarMonthsCount);
     this._calendarMonths = [];
 
     let currentDate = moment(this._startDate);
@@ -65,7 +82,7 @@ export class CalendarRenderService {
         //--Fill blanks
       }
 
-      
+      //Create day / tile
       for (let j : number = currentDate.date(); j <= monthDate.daysInMonth() && daysToCreate > 0; j++) {
         let day = new CalendarDay(currentDate);
         month.addDay(day);
@@ -73,6 +90,8 @@ export class CalendarRenderService {
         currentDate = currentDate.add(1, 'd');
         daysToCreate--;
       }
+      //--create day / tile
+
 
       //Fill in blanks at the end of the month calendar
       let lastWeekday = moment(currentDate).day();
@@ -85,9 +104,10 @@ export class CalendarRenderService {
       }
       //--Fill blanks
 
-      monthDate = monthDate.add(1, 'M');
       this._calendarMonths.push(month);
+      monthDate = monthDate.add(1, 'M');
     }
     console.log(this._calendarMonths);
+    this._renderDone = true;
   }
 }
