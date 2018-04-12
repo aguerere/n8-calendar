@@ -4,6 +4,11 @@ export class CalendarMonth {
     private _monthName : string;
     private _year : string;
     private _days : CalendarDay[];
+    private _daysCount : number;
+
+    constructor() {
+        this._days = [];
+    }
 
     get title() {
         return this._monthName + ' ' + this._year;
@@ -17,12 +22,20 @@ export class CalendarMonth {
         this._year = newYear;
     }
 
+    get daysCount() : number {
+        return this._daysCount;
+    }
+
+    set daysCount(newCount : number) {
+        this._daysCount = newCount;
+    }
+
     get days() {
         return this.days;
     }
 
     addDay(newDay : CalendarDay) {
-        this.days.push(newDay);
+        this._days.push(newDay);
     }
 
     clearDays() {

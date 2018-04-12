@@ -1,20 +1,36 @@
+import * as moment from 'moment';
+
 export class CalendarDay {
-    private _date : Date;
+    private _date : moment.Moment;
     private _tileColor : string;
 
-    get date() : Date {
-        return this._date;
+    constructor(date) {
+        this._date = date;
+        this.setTileColor();
     }
 
-    set date(newDate : Date) {
-        this._date = newDate;
+    private setTileColor() {
+        if (this._date) {
+            switch(this._date.day()) {
+                case 0:
+                case 6:
+                    this._tileColor = "yellow";
+                    break;
+                default:
+                    this._tileColor = "white";
+            }
+            //TODO: implement different color for holidays
+        } else {
+            this._tileColor = "gray";
+        }
+    }
+
+    get date() : moment.Moment {
+        return this._date;
     }
 
     get tileColor() : string {
         return this._tileColor;
     }
 
-    set tileColor(newColor : string) {
-        this._tileColor = newColor;
-    }
 }

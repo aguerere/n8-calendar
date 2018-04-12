@@ -12,7 +12,7 @@ export class CalendarInputComponent implements OnInit {
   countryCode : string;
   constructor(private calendarRenderService : CalendarRenderService) {
     this.startDate = new Date();
-    this.days = 15;
+    this.days = 8;
     this.countryCode = 'US';
   }
 
@@ -33,6 +33,7 @@ export class CalendarInputComponent implements OnInit {
     this.calendarRenderService.startDate = this.startDate;
     this.calendarRenderService.daysCount = this.days;
     this.calendarRenderService.countryCode = this.countryCode;
+    this.calendarRenderService.render();
   }
 
 }
