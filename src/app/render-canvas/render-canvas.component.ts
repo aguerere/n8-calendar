@@ -8,7 +8,7 @@ import { CalendarRenderService } from '../services/calendar-render.service';
 })
 export class RenderCanvasComponent implements OnInit {
 
-  constructor(private calendarRenderService : CalendarRenderService) { }
+  constructor(public calendarRenderService : CalendarRenderService) { }
 
   ngOnInit() {
   }
