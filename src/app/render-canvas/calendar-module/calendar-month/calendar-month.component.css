@@ -1,7 +1,19 @@
 mat-grid-list {
-    width: 30%;
+    width: 20%;
 }
 
-.blank-day {
-    background-color: gray;
+.calendar-month-grid {
+    padding-bottom: 180px !important;
+}
+
+.gray {
+    background-color: lightgray;
+}
+
+.white {
+    background-color: white;
+}
+
+.yellow {
+    background-color: yellow;
 }

@@ -5,7 +5,8 @@ export class CalendarDay {
     private _tileColor : string;
 
     constructor(date) {
-        this._date = date;
+        if (date)
+            this._date = moment(date);
         this.setTileColor();
     }
 

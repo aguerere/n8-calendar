@@ -53,11 +53,26 @@ export class CalendarRenderService {
     return this._calendarMonths;
   }
 
+  private calculateAbsoluteMonthDifference(endDate, startDate) : number {
+    let endDateMonths = Number(endDate.format('MM'));
+    let endDateYears = Number(endDate.format('YYYY'));
+    endDateMonths = endDateMonths + (endDateYears * 12);
+
+    let startDateMonths = Number(startDate.format('MM'));
+    let startDateYears = Number(startDate.format('YYYY'));
+    startDateMonths = startDateMonths + (startDateYears * 12);
+
+    return endDateMonths - startDateMonths;
+  }
+
   render() {
     let startDate = moment(this._startDate);
-    let endDate = moment(this._startDate).add(this._daysCount, 'd');
+    let endDate = moment(this._startDate).add(this._daysCount - 1, 'd');
     //this._calendarMonthsCount = endDate.month() - startDate.month(); //Works if year is the same
-    this._calendarMonthsCount = endDate.diff(startDate, 'months');
+    //this._calendarMonthsCount = endDate.diff(startDate, 'months'); //This calculates the diff and returns how many months does that diff last
+    this._calendarMonthsCount = this.calculateAbsoluteMonthDifference(endDate, startDate);
+    //console.log(startDate.format());
+    //console.log(endDate.format());
     //console.log(this._calendarMonthsCount);
     this._calendarMonths = [];
 

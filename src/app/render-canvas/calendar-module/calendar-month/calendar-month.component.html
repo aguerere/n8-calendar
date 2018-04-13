@@ -1,13 +1,13 @@
 <section class="mat-typography">
-    <mat-grid-list [cols]=7 rowHeight=20>
+    <mat-grid-list [cols]=7 rowHeight=20 class="weekday-header">
         <mat-grid-tile [colspan]=7>
             {{ month.title }}
         </mat-grid-tile>
     </mat-grid-list>
     
-    <mat-grid-list [cols]=7 rowHeight="1:1">
-        <mat-grid-tile *ngFor='let day of month.days'>
-            {{ day.date }}
+    <mat-grid-list [cols]=7 rowHeight="1:1" class="calendar-month-grid">
+        <mat-grid-tile *ngFor='let day of month.days' [ngClass]="day.tileColor">
+            {{ day.date ? day.date.format('DD') : '' }}
         </mat-grid-tile>
     </mat-grid-list>
 </section>
