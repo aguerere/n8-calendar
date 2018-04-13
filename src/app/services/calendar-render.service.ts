@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
+import * as date_holidays from 'date-holidays';
 
 import { CalendarMonth } from './calendar-month';
 import { CalendarDay } from './calendar-day';
@@ -12,6 +13,7 @@ export class CalendarRenderService {
   private _calendarMonthsCount : number;
   private _calendarMonths : CalendarMonth[];
   private _renderDone : boolean;
+  public holidays : any;
 
   constructor() {
     this._renderDone = false;
@@ -39,6 +41,7 @@ export class CalendarRenderService {
 
   set countryCode(newCountryCode : string) {
     this._countryCode = newCountryCode;
+    this.holidays = new date_holidays(this._countryCode, undefined, undefined, { types: ['public'] });
   }
 
   get renderDone() : boolean {
@@ -99,7 +102,7 @@ export class CalendarRenderService {
 
       //Create day / tile
       for (let j : number = currentDate.date(); j <= monthDate.daysInMonth() && daysToCreate > 0; j++) {
-        let day = new CalendarDay(currentDate);
+        let day = new CalendarDay(currentDate, this.holidays.isHoliday(currentDate.toDate()));
         month.addDay(day);
         //console.log(currentDate.format());
         currentDate = currentDate.add(1, 'd');

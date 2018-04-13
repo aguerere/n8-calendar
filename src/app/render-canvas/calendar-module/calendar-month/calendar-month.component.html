@@ -5,7 +5,7 @@
         </mat-grid-tile>
     </mat-grid-list>
     
-    <mat-grid-list [cols]=7 rowHeight="1:1" class="calendar-month-grid">
+    <mat-grid-list [cols]=7 rowHeight=30 class="calendar-month-grid">
         <mat-grid-tile *ngFor='let day of month.days' [ngClass]="day.tileColor">
             {{ day.date ? day.date.format('DD') : '' }}
         </mat-grid-tile>

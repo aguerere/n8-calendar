@@ -3,10 +3,13 @@ import * as moment from 'moment';
 export class CalendarDay {
     private _date : moment.Moment;
     private _tileColor : string;
+    private _isHoliday : boolean;
 
-    constructor(date) {
-        if (date)
+    constructor(date : moment.Moment, isHoliday : boolean = false) {
+        if (date) {
             this._date = moment(date);
+            this._isHoliday = isHoliday;
+        }
         this.setTileColor();
     }
 
@@ -20,7 +23,9 @@ export class CalendarDay {
                 default:
                     this._tileColor = "white";
             }
-            //TODO: implement different color for holidays
+
+            this._isHoliday ? this._tileColor = "pink" : null;
+            
         } else {
             this._tileColor = "gray";
         }
