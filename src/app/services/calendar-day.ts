@@ -21,10 +21,10 @@ export class CalendarDay {
                     this._tileColor = "yellow";
                     break;
                 default:
-                    this._tileColor = "white";
+                    this._tileColor = "green";
             }
 
-            this._isHoliday ? this._tileColor = "pink" : null;
+            this._isHoliday ? this._tileColor = "orange" : null;
             
         } else {
             this._tileColor = "gray";

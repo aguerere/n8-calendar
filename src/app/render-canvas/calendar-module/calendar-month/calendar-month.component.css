@@ -10,14 +10,18 @@ mat-grid-list {
     background-color: lightgray;
 }
 
-.white {
-    background-color: white;
+.green {
+    background-color: #C1DF8D;
 }
 
 .yellow {
     background-color: yellow;
 }
 
-.pink {
-    background-color: lightpink;
+.orange {
+    background-color: orange;
+}
+
+.weekday-header {
+    background-color: rgba(233, 245, 202, 0.5);
 }
