@@ -92,7 +92,7 @@ export class CalendarRenderService {
       //Fill in blanks at the start of the month calendar
       let firstWeekday = moment(currentDate).day();
       //console.log("firstWeekday",firstWeekday);
-      if (firstWeekday < 6) { //If current day (first day) is not a saturday
+      if (firstWeekday <= 6) { //If current day (first day) is not a saturday
         for (let j : number = 0; j < firstWeekday; j++) {
           let day = new CalendarDay(null);
           month.addDay(day);
